@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count: 0,
-        tags:['tag1', 'tag2', 'tag3']
+        count: 0
      };
+
+    handleIncrement = product =>{
+        this.setState({ count: this.state.count + 1 })
+    };
     render() {
         let classes = this.getBadgeClasses();
         return ( 
             <div>
                 <h1><span className={classes}>{this.formatCount()}</span></h1>
-                <button className="btn btn-secondary btn-sm">Increment</button>
-                <ul>
-                    { this.state.tags.map(tag=> <li key={tag}>{ tag }</li>) }
-                </ul>
+                <button onClick={() => this.handleIncrement(product)} className="btn btn-secondary btn-sm">Increment</button>
             </div>
          );
     }
